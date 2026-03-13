@@ -11,7 +11,7 @@ import { ContactPage } from "@/pages/ContactPage"
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/port">
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<HomePage />} />
