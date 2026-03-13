@@ -4,6 +4,7 @@ export interface ExperienceItem {
   period: string
   bullets: string[]
   leadBullets?: string[]
+  logo?: string
 }
 
 export interface Project {
@@ -36,6 +37,7 @@ export const resumeExperience: ExperienceItem[] = [
     company: "Brightspot Technology Solutions",
     role: "Full Stack Developer",
     period: "Mar 2022 – Present",
+    logo: "BTS",
     bullets: [
       "Developed dynamic and responsive web applications for e-commerce and service-based platforms using React and Node.js.",
       "Built an AI-driven email segmentation agent using LangGraph for workflow orchestration and LangSmith for tracing, evaluation, and optimization, enabling automated and highly accurate user-segment classification.",
@@ -56,6 +58,19 @@ export const resumeExperience: ExperienceItem[] = [
       "Ensured high availability and uptime through improved monitoring, log management, and recovery strategies.",
       "Improved SEO and page load speed through code splitting, lazy loading, and image optimization techniques.",
       "Integrated third-party services using GraphQL and RESTful APIs.",
+      "Architected reusable React component libraries with TypeScript generics, reducing frontend development time across projects by 30%.",
+      "Implemented state management patterns using Redux Toolkit and Zustand, optimizing global state handling for complex multi-step checkout flows.",
+      "Built and consumed RESTful and GraphQL APIs with proper error handling, request caching, and retry logic using Axios interceptors.",
+      "Developed custom React hooks for debounced search, infinite scroll pagination, and form validation to promote code reuse.",
+      "Configured Webpack and Vite build pipelines with tree-shaking, chunk splitting, and environment-specific optimizations for production deployments.",
+      "Implemented JWT-based authentication and role-based access control (RBAC) across frontend and backend services.",
+      "Designed PostgreSQL schemas with normalized tables, composite indexes, and materialized views to support high-read workloads.",
+      "Set up AWS Lambda functions with API Gateway for serverless microservices, reducing infrastructure costs by ~35%.",
+      "Containerized services with Docker and orchestrated deployments using AWS ECS and Elastic Beanstalk.",
+      "Wrote comprehensive unit and integration tests using Jest, React Testing Library, and Playwright for end-to-end coverage.",
+      "Implemented responsive layouts with Tailwind CSS utility-first approach and CSS Grid/Flexbox, achieving consistent cross-browser rendering.",
+      "Built real-time notification systems using AWS SQS and Step Functions for asynchronous event-driven workflows.",
+      "Applied rate limiting, WAF rules, and load balancer configurations to mitigate DDoS and bot attacks on production endpoints.",
     ],
     leadBullets: [
       "Collaborated closely with cross-functional teams, including designers, QA, and product owners, to deliver high-quality features on time.",

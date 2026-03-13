@@ -4,13 +4,13 @@ function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="border-t py-8 px-6 md:px-8">
-      <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
-        <p>© {currentYear} Santhosh.G. All rights reserved.</p>
-        <div className="flex gap-6">
+    <footer className="border-t border-border bg-muted/30 py-10 px-6 md:px-12 lg:px-20">
+      <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
+        <p className="font-medium">© {currentYear} Santhosh.G</p>
+        <div className="flex gap-8">
           <a
             href={contactLinks.email}
-            className="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+            className="hover:text-primary font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
           >
             Email
           </a>
@@ -18,7 +18,7 @@ function Footer() {
             href={contactLinks.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+            className="hover:text-primary font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
           >
             LinkedIn
           </a>
@@ -26,7 +26,7 @@ function Footer() {
             href={contactLinks.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-foreground transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded"
+            className="hover:text-primary font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md"
           >
             GitHub
           </a>

@@ -4,43 +4,61 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 220 16% 96%;
+    --foreground: 220 40% 13%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --primary: 173 80% 40%;
+    --card-foreground: 220 40% 13%;
+    --muted: 220 14% 92%;
+    --muted-foreground: 220 9% 46%;
+    --primary: 210 100% 52%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
+    --secondary: 220 14% 92%;
+    --secondary-foreground: 220 40% 13%;
+    --accent: 142 71% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 173 80% 40%;
-    --border: 214.3 31.8% 91.4%;
-    --radius: 0.5rem;
+    --input: 220 13% 88%;
+    --ring: 210 100% 52%;
+    --border: 220 13% 88%;
+    --radius: 0.75rem;
+
+    --terminal-bg: 220 27% 10%;
+    --terminal-fg: 120 40% 75%;
+    --terminal-comment: 220 10% 55%;
+    --diff-add: 142 71% 45%;
+    --diff-remove: 0 84% 60%;
+    --pipeline-success: 142 71% 45%;
+    --pipeline-running: 210 100% 52%;
+    --pipeline-pending: 47 100% 62%;
   }
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --primary: 173 80% 40%;
+    --background: 220 27% 7%;
+    --foreground: 220 20% 90%;
+    --card: 220 27% 10%;
+    --card-foreground: 220 20% 90%;
+    --muted: 220 20% 14%;
+    --muted-foreground: 220 10% 55%;
+    --primary: 210 100% 52%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 173 80% 40%;
-    --border: 217.2 32.6% 17.5%;
+    --secondary: 220 20% 14%;
+    --secondary-foreground: 220 20% 90%;
+    --accent: 142 71% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 220 20% 90%;
+    --input: 220 20% 14%;
+    --ring: 210 100% 52%;
+    --border: 220 20% 18%;
+
+    --terminal-bg: 220 27% 5%;
+    --terminal-fg: 120 40% 75%;
+    --terminal-comment: 220 10% 45%;
+    --diff-add: 142 71% 45%;
+    --diff-remove: 0 84% 55%;
+    --pipeline-success: 142 71% 45%;
+    --pipeline-running: 210 100% 52%;
+    --pipeline-pending: 47 100% 62%;
   }
   body {
     @apply bg-background text-foreground antialiased;
@@ -54,8 +72,6 @@ html {
 
 #root {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -65,3 +81,43 @@ html {
 section {
   scroll-margin-top: 5rem;
 }
+
+.font-mono {
+  font-family: "JetBrains Mono", "Fira Code", ui-monospace, Consolas, monospace;
+}
+
+.terminal-bg {
+  background: hsl(var(--terminal-bg));
+  color: hsl(var(--terminal-fg));
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.glow-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.3;
+  pointer-events: none;
+}
+.glow-orb--primary { background: hsl(var(--primary) / 0.4); }
+.glow-orb--accent { background: hsl(var(--accent) / 0.4); }
+.dark .glow-orb { opacity: 0.15; }

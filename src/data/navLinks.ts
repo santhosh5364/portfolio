@@ -1,8 +1,8 @@
 export const navLinks = [
-  { href: "#about", label: "About", id: "about" },
-  { href: "#skills", label: "Skills", id: "skills" },
-  { href: "#experience", label: "Experience", id: "experience" },
-  { href: "#projects", label: "Projects", id: "projects" },
-  { href: "#education", label: "Education", id: "education" },
-  { href: "#contact", label: "Contact", id: "contact" },
+  { path: "/about", label: "README.md", icon: "file" },
+  { path: "/skills", label: "Pull Requests", icon: "git-pr" },
+  { path: "/experience", label: "CI/CD Pipeline", icon: "pipeline" },
+  { path: "/projects", label: "Deployments", icon: "rocket" },
+  { path: "/process", label: "Agile Board", icon: "kanban" },
+  { path: "/contact", label: "Terminal", icon: "terminal" },
 ]
