@@ -1,17 +1,17 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import { Layout } from "@/pages/Layout"
-import { HomePage } from "@/pages/HomePage"
-import { AboutPage } from "@/pages/AboutPage"
-import { SkillsPage } from "@/pages/SkillsPage"
-import { AiPage } from "@/pages/AiPage"
-import { ExperiencePage } from "@/pages/ExperiencePage"
-import { ProjectsPage } from "@/pages/ProjectsPage"
-import { ProcessPage } from "@/pages/ProcessPage"
-import { ContactPage } from "@/pages/ContactPage"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Layout } from "@/pages/Layout";
+import { HomePage } from "@/pages/HomePage";
+import { AboutPage } from "@/pages/AboutPage";
+import { SkillsPage } from "@/pages/SkillsPage";
+import { AiPage } from "@/pages/AiPage";
+import { ExperiencePage } from "@/pages/ExperiencePage";
+import { ProjectsPage } from "@/pages/ProjectsPage";
+import { ProcessPage } from "@/pages/ProcessPage";
+import { ContactPage } from "@/pages/ContactPage";
 
 function App() {
   return (
-    <BrowserRouter basename="/port">
+    <BrowserRouter basename="/portfolio">
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -25,7 +25,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
