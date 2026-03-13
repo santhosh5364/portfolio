@@ -6,9 +6,10 @@ import { useInView } from "@/hooks/useInView"
 import { cn } from "@/lib/utils"
 
 const pipelineStages = [
-  { label: "Plan", color: "text-blue-400", bg: "bg-blue-500/20", border: "border-blue-500/30" },
   { label: "Build", color: "text-yellow-400", bg: "bg-yellow-500/20", border: "border-yellow-500/30" },
   { label: "Test", color: "text-purple-400", bg: "bg-purple-500/20", border: "border-purple-500/30" },
+  { label: "AI", color: "text-pink-400", bg: "bg-pink-500/20", border: "border-pink-500/30" },
+  { label: "Docker", color: "text-blue-400", bg: "bg-blue-500/20", border: "border-blue-500/30" },
   { label: "Deploy", color: "text-green-400", bg: "bg-green-500/20", border: "border-green-500/30" },
 ]
 
@@ -79,53 +80,68 @@ function Experience() {
       ref={ref}
       id="experience"
       className={cn(
-        "transition-all duration-700",
+        "relative transition-all duration-700 overflow-hidden",
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       )}
     >
-      <div className="terminal-bg rounded-xl border border-border overflow-hidden shadow-lg mb-8">
-        <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10">
-          <span className="h-3 w-3 rounded-full bg-red-500" />
-          <span className="h-3 w-3 rounded-full bg-yellow-500" />
-          <span className="h-3 w-3 rounded-full bg-green-500" />
-          <span className="ml-3 text-xs text-white/40 font-mono">CI/CD — {job.company}</span>
+      <div className="absolute inset-0 bg-dot-grid opacity-30" aria-hidden />
+      <div className="absolute inset-0 bg-mesh-gradient" aria-hidden />
+      <div className="glow-orb glow-orb--accent animate-pulse-glow w-[280px] h-[280px] -top-24 -left-24" aria-hidden />
+      <div className="glow-orb glow-orb--purple animate-float w-[220px] h-[220px] bottom-0 right-0" aria-hidden />
+      <div className="relative z-10">
+        <div className="terminal-bg rounded-xl border border-border overflow-hidden shadow-lg mb-8">
+          <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10">
+            <span className="h-3 w-3 rounded-full bg-red-500" />
+            <span className="h-3 w-3 rounded-full bg-yellow-500" />
+            <span className="h-3 w-3 rounded-full bg-green-500" />
+            <span className="ml-3 text-xs text-white/40 font-mono">CI/CD — {job.company}</span>
+          </div>
+          <div className="p-5 font-mono text-sm">
+            <p>
+              <span className="text-green-400">$</span>{" "}
+              <span className="text-white/80">git log --oneline --author=&quot;{job.role}&quot;</span>
+            </p>
+            <p className="text-yellow-400 mt-1">
+              {job.period} — {job.company}
+            </p>
+          </div>
         </div>
-        <div className="p-5 font-mono text-sm">
-          <p>
-            <span className="text-green-400">$</span>{" "}
-            <span className="text-white/80">git log --oneline --author=&quot;{job.role}&quot;</span>
-          </p>
-          <p className="text-yellow-400 mt-1">
-            {job.period} — {job.company}
-          </p>
-        </div>
-      </div>
+        <PipelineHeader />
 
-      <PipelineHeader />
-
-      <div className="space-y-6">
-        <PipelineJob
-          title="build: frontend & backend"
-          status="success"
-          items={job.bullets.slice(0, 10)}
-        />
-        <PipelineJob
-          title="test: quality & performance"
-          status="success"
-          items={job.bullets.slice(10, 20)}
-        />
-        <PipelineJob
-          title="deploy: cloud & infrastructure"
-          status="success"
-          items={job.bullets.slice(20)}
-        />
-        {job.leadBullets && job.leadBullets.length > 0 && (
+        <div className="space-y-6">
           <PipelineJob
-            title="lead: team & process"
-            status="running"
-            items={job.leadBullets}
+            title="build: frontend & backend"
+            status="success"
+            items={job.bullets.slice(0, 12)}
           />
-        )}
+          <PipelineJob
+            title="test: quality & performance"
+            status="success"
+            items={job.bullets.slice(12, 24)}
+          />
+          <PipelineJob
+            title="ai: ml agents & tooling"
+            status="success"
+            items={job.bullets.slice(24, 34)}
+          />
+          <PipelineJob
+            title="docker: containerize & ship"
+            status="success"
+            items={job.bullets.slice(34, 40)}
+          />
+          <PipelineJob
+            title="deploy: jenkins → ssh → nginx"
+            status="success"
+            items={job.bullets.slice(40)}
+          />
+          {job.leadBullets && job.leadBullets.length > 0 && (
+            <PipelineJob
+              title="lead: team & process"
+              status="running"
+              items={job.leadBullets}
+            />
+          )}
+        </div>
       </div>
     </Section>
   )

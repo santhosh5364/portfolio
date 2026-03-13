@@ -11,8 +11,15 @@ import {
   Rocket,
   LayoutDashboard,
   TerminalSquare,
+  Brain,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
 import {
   Sheet,
   SheetContent,
@@ -20,6 +27,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { Separator } from "@/components/ui/separator"
 import { navLinks } from "@/data/navLinks"
 import { useTheme } from "@/hooks/useTheme"
 import { cn } from "@/lib/utils"
@@ -27,6 +35,7 @@ import { cn } from "@/lib/utils"
 const iconMap: Record<string, React.ReactNode> = {
   file: <FileText className="h-4 w-4" />,
   "git-pr": <GitPullRequest className="h-4 w-4" />,
+  brain: <Brain className="h-4 w-4" />,
   pipeline: <Workflow className="h-4 w-4" />,
   rocket: <Rocket className="h-4 w-4" />,
   kanban: <LayoutDashboard className="h-4 w-4" />,
@@ -41,19 +50,28 @@ function ThemeToggle() {
   }
 
   return (
-    <Button
-      variant="ghost"
-      size="icon"
-      onClick={handleToggle}
-      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      className="rounded-full"
-    >
-      {theme === "dark" ? (
-        <Sun className="h-4 w-4" />
-      ) : (
-        <Moon className="h-4 w-4" />
-      )}
-    </Button>
+    <TooltipProvider delayDuration={300}>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={handleToggle}
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            className="rounded-full backdrop-blur-md bg-background/60 border border-border/50 shadow-sm"
+          >
+            {theme === "dark" ? (
+              <Sun className="h-4 w-4" />
+            ) : (
+              <Moon className="h-4 w-4" />
+            )}
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          {theme === "dark" ? "Light mode" : "Dark mode"}
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
   )
 }
 
@@ -66,20 +84,27 @@ function FloatingNav() {
 
   return (
     <div
-      className="fixed top-4 right-4 z-50 flex items-center gap-2"
+      className="fixed top-4 right-4 z-50 flex items-center gap-2 rounded-full backdrop-blur-lg bg-background/50 border border-border/50 px-2 py-1.5 shadow-lg"
       aria-label="Page actions"
     >
       <ThemeToggle />
       <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
         <SheetTrigger asChild>
-          <Button
-            variant="secondary"
-            size="icon"
-            aria-label="Open menu"
-            className="rounded-full shadow-lg border border-border"
-          >
-            <Menu className="h-5 w-5" />
-          </Button>
+          <TooltipProvider delayDuration={300}>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  aria-label="Open menu"
+                  className="rounded-full"
+                >
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>Menu</TooltipContent>
+            </Tooltip>
+          </TooltipProvider>
         </SheetTrigger>
         <SheetContent side="right" className="w-[300px] sm:w-[340px]">
           <SheetHeader>
@@ -98,6 +123,7 @@ function FloatingNav() {
               <Home className="h-4 w-4" />
               Home
             </Link>
+            <Separator className="my-1" />
             {navLinks.map((link) => (
               <Link
                 key={link.path}

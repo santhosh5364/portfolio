@@ -120,4 +120,57 @@ section {
 }
 .glow-orb--primary { background: hsl(var(--primary) / 0.4); }
 .glow-orb--accent { background: hsl(var(--accent) / 0.4); }
+.glow-orb--purple { background: hsl(262 83% 58% / 0.35); }
 .dark .glow-orb { opacity: 0.15; }
+
+.bg-dot-grid {
+  background-image: radial-gradient(circle, hsl(var(--foreground) / 0.07) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.dark .bg-dot-grid {
+  background-image: radial-gradient(circle, hsl(var(--foreground) / 0.05) 1px, transparent 1px);
+}
+
+.bg-grid-lines {
+  background-image:
+    linear-gradient(hsl(var(--border) / 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / 0.5) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.dark .bg-grid-lines {
+  background-image:
+    linear-gradient(hsl(var(--border) / 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--border) / 0.3) 1px, transparent 1px);
+}
+
+.bg-mesh-gradient {
+  background:
+    radial-gradient(ellipse at 20% 50%, hsl(var(--primary) / 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, hsl(var(--accent) / 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, hsl(262 83% 58% / 0.06) 0%, transparent 50%);
+}
+.dark .bg-mesh-gradient {
+  background:
+    radial-gradient(ellipse at 20% 50%, hsl(var(--primary) / 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, hsl(var(--accent) / 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, hsl(262 83% 58% / 0.04) 0%, transparent 50%);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-float-delayed {
+  animation: float 6s ease-in-out 2s infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.05); }
+}
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}

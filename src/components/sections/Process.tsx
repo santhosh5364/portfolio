@@ -21,6 +21,12 @@ const columns: { heading: string; cards: KanbanCard[] }[] = [
         tagColor: "bg-blue-500/20 text-blue-500 border-blue-500/30",
       },
       {
+        title: "Prepare spec document",
+        description: "Write detailed specification with data models, API contracts, edge cases, and acceptance criteria before any code is written.",
+        tag: "Spec-First",
+        tagColor: "bg-indigo-500/20 text-indigo-500 border-indigo-500/30",
+      },
+      {
         title: "Architecture design",
         description: "Document system architecture, data flows, and technical decisions before implementation.",
         tag: "Design",
@@ -31,6 +37,18 @@ const columns: { heading: string; cards: KanbanCard[] }[] = [
   {
     heading: "In Progress",
     cards: [
+      {
+        title: "AI Planning Mode",
+        description: "Feed the spec into Cursor Planning Mode or Claude to generate a step-by-step implementation plan with impact analysis.",
+        tag: "AI Plan",
+        tagColor: "bg-violet-500/20 text-violet-500 border-violet-500/30",
+      },
+      {
+        title: "AI Agent execution",
+        description: "Switch to Cursor Agent Mode to implement the plan. AI generates code from the spec while developer reviews and guides each change.",
+        tag: "AI Execute",
+        tagColor: "bg-pink-500/20 text-pink-500 border-pink-500/30",
+      },
       {
         title: "Sprint development",
         description: "Implement features in 2-week sprints with daily stand-ups and continuous integration.",
@@ -49,8 +67,14 @@ const columns: { heading: string; cards: KanbanCard[] }[] = [
     heading: "Testing",
     cards: [
       {
+        title: "AI-generated test cases",
+        description: "Use Claude CLI and Cursor to auto-generate unit, integration, and E2E test suites from the spec document.",
+        tag: "AI Test",
+        tagColor: "bg-fuchsia-500/20 text-fuchsia-500 border-fuchsia-500/30",
+      },
+      {
         title: "QA & automation",
-        description: "Write unit, integration, and E2E tests with Jest, React Testing Library, and Playwright.",
+        description: "Run full test suite with Jest, React Testing Library, and Playwright for end-to-end coverage.",
         tag: "Testing",
         tagColor: "bg-pink-500/20 text-pink-500 border-pink-500/30",
       },
@@ -66,9 +90,21 @@ const columns: { heading: string; cards: KanbanCard[] }[] = [
     heading: "Done",
     cards: [
       {
-        title: "Deploy to production",
-        description: "Automated CI/CD pipelines with Terraform, feature flags via Flipt, and zero-downtime releases.",
-        tag: "Deploy",
+        title: "Jenkins CI build",
+        description: "Jenkins pipeline triggers on merge — runs tests, builds a multi-stage Docker image, and pushes the tagged image to the container registry.",
+        tag: "Jenkins",
+        tagColor: "bg-yellow-500/20 text-yellow-500 border-yellow-500/30",
+      },
+      {
+        title: "SSH + Docker deploy",
+        description: "Jenkins SSHs into the production server, pulls the latest Docker image, and performs a rolling container restart with zero downtime.",
+        tag: "Docker",
+        tagColor: "bg-blue-500/20 text-blue-500 border-blue-500/30",
+      },
+      {
+        title: "Nginx web config",
+        description: "Nginx reverse proxy handles SSL/TLS termination, gzip compression, caching headers, and load balancing across upstream Docker containers.",
+        tag: "Nginx",
         tagColor: "bg-green-500/20 text-green-500 border-green-500/30",
       },
       {
@@ -128,11 +164,15 @@ function Process() {
       ref={ref}
       id="process"
       className={cn(
-        "transition-all duration-700",
+        "relative transition-all duration-700 overflow-hidden",
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       )}
     >
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="absolute inset-0 bg-dot-grid opacity-40" aria-hidden />
+      <div className="absolute inset-0 bg-mesh-gradient" aria-hidden />
+      <div className="glow-orb glow-orb--purple animate-float w-[240px] h-[240px] -top-20 -right-16" aria-hidden />
+      <div className="glow-orb glow-orb--primary animate-pulse-glow w-[200px] h-[200px] bottom-0 left-1/3" aria-hidden />
+      <div className="relative z-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {columns.map((col) => (
           <KanbanColumn key={col.heading} heading={col.heading} cards={col.cards} />
         ))}

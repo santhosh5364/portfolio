@@ -1,7 +1,11 @@
 import { Hero } from "@/components/sections/Hero"
 
 function HomePage() {
-  return <Hero />
+  return (
+    <div className="relative">
+      <Hero />
+    </div>
+  )
 }
 
 export { HomePage }

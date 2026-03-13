@@ -11,6 +11,8 @@ export interface Project {
   name: string
   description: string
   highlights: string[]
+  platforms?: string[]
+  architecture?: string
 }
 
 export interface EducationEntry {
@@ -28,9 +30,9 @@ export interface SkillGroup {
 
 export const resumeName = "Santhosh.G"
 export const resumeTitle = "Full Stack Developer"
-export const resumeTagline = "4+ years building scalable web applications with React, Node.js, TypeScript, PostgreSQL & AWS"
+export const resumeTagline = "4+ years building scalable web applications with React, Node.js, TypeScript, PostgreSQL, AWS & Azure"
 
-export const resumeObjective = `Motivated and detail-oriented Full Stack Developer with over 4+ years of experience in designing, developing, and deploying scalable web applications using modern technologies such as React, Node.js, TypeScript, PostgreSQL, and AWS. Strong background in cloud-native development, responsive UI design, API integrations, and observability tools. Adept at working in Agile environments, with a solid focus on code quality, performance optimization, and secure programming practices.`
+export const resumeObjective = `Motivated and detail-oriented Full Stack Developer with over 4+ years of experience in designing, developing, and deploying scalable web applications using modern technologies such as React, Node.js, TypeScript, PostgreSQL, AWS, and Azure. Strong background in cloud-native development, responsive UI design, API integrations, and observability tools. Adept at working in Agile environments, with a solid focus on code quality, performance optimization, and secure programming practices.`
 
 export const resumeExperience: ExperienceItem[] = [
   {
@@ -42,12 +44,12 @@ export const resumeExperience: ExperienceItem[] = [
       "Developed dynamic and responsive web applications for e-commerce and service-based platforms using React and Node.js.",
       "Built an AI-driven email segmentation agent using LangGraph for workflow orchestration and LangSmith for tracing, evaluation, and optimization, enabling automated and highly accurate user-segment classification.",
       "Implemented real-time communication using WebSockets to deliver instant payment status updates across clients, while adding concurrency controls to prevent conflicting or duplicate user actions during critical transactions.",
-      "Played a key role in the development of a wine-based e-commerce website supporting both online and offline ordering.",
+      "Played a key role in the development of Corksy, a multi-tenant wine e-commerce platform with Web App, Mobile App, and POS, using Duda for storefront website building.",
       "Adopted Agent IDE with Vibe mode—alongside tools like Cursor and Antigravity—to enhance workflow efficiency, automate repetitive coding tasks, and maintain consistent, high-quality coding standards.",
       "Implemented Google Analytics (gtag.js) to track detailed user interactions, including page views, button clicks, and custom events, enabling data-driven insights for product and UX improvements.",
       "Built secure backend services with Node.js and PostgreSQL, including protection against SQL injections and bot attacks.",
       "Optimized SQL queries to improve data fetching speeds by up to 40%.",
-      "Leveraged AWS services for scalable cloud deployments and serverless architecture.",
+      "Leveraged AWS and Azure cloud services for scalable deployments, serverless architecture, and managed infrastructure.",
       "Automated deployment pipelines and infrastructure using Terraform and CI/CD tools.",
       "Integrated observability tools like OpenTelemetry for distributed tracing and metrics collection across services.",
       "Implemented monitoring and alerting using Datadog, enabling faster root cause analysis and proactive issue resolution.",
@@ -65,12 +67,26 @@ export const resumeExperience: ExperienceItem[] = [
       "Configured Webpack and Vite build pipelines with tree-shaking, chunk splitting, and environment-specific optimizations for production deployments.",
       "Implemented JWT-based authentication and role-based access control (RBAC) across frontend and backend services.",
       "Designed PostgreSQL schemas with normalized tables, composite indexes, and materialized views to support high-read workloads.",
-      "Set up AWS Lambda functions with API Gateway for serverless microservices, reducing infrastructure costs by ~35%.",
-      "Containerized services with Docker and orchestrated deployments using AWS ECS and Elastic Beanstalk.",
+      "Set up serverless functions with API Gateway for microservices, reducing infrastructure costs by ~35%.",
+      "Containerized services with Docker and orchestrated deployments using cloud container services and managed platforms.",
+      "Configured Jenkins CI/CD pipelines to automate Docker image builds, run test suites, and push tagged images to container registries on every merge to main.",
+      "Implemented SSH-based deployment workflows where Jenkins triggers remote server connections to pull the latest Docker images and perform rolling container restarts with zero downtime.",
+      "Set up Nginx as a reverse proxy and web server for production environments, configuring SSL/TLS termination, gzip compression, caching headers, and load balancing across multiple upstream containers.",
+      "Designed multi-stage Dockerfiles to optimize image size and build speed, separating build dependencies from production runtime for leaner deployments.",
+      "Automated release tagging and Docker image versioning through Jenkins pipelines, enabling instant rollback to previous versions via tagged images.",
       "Wrote comprehensive unit and integration tests using Jest, React Testing Library, and Playwright for end-to-end coverage.",
       "Implemented responsive layouts with Tailwind CSS utility-first approach and CSS Grid/Flexbox, achieving consistent cross-browser rendering.",
-      "Built real-time notification systems using AWS SQS and Step Functions for asynchronous event-driven workflows.",
+      "Architected event-driven microservices using NATS as the messaging backbone, enabling decoupled, high-throughput communication between services with publish/subscribe and request/reply patterns.",
+      "Built real-time notification systems using message queues, step functions, and NATS JetStream for durable, asynchronous event-driven workflows with at-least-once delivery guarantees.",
       "Applied rate limiting, WAF rules, and load balancer configurations to mitigate DDoS and bot attacks on production endpoints.",
+      "Leveraged Cursor IDE with Claude (Anthropic) as the AI backbone for intelligent code generation, refactoring, and real-time debugging across large codebases.",
+      "Built multi-step AI agents using LangGraph with tool-calling capabilities, enabling autonomous task execution for email classification and content generation workflows.",
+      "Integrated Claude CLI into development workflows to automate code reviews, generate test cases, and scaffold boilerplate, reducing manual effort by ~40%.",
+      "Adopted Vibe Coding methodology using Cursor's Agent Mode and Anthropic Claude to accelerate feature development while maintaining strict code quality standards.",
+      "Designed prompt engineering patterns for structured output parsing, chain-of-thought reasoning, and few-shot classification to power customer-facing AI features.",
+      "Built AI-powered search and recommendation features using OpenAI embeddings with cosine similarity for personalized product discovery.",
+      "Used LangSmith for end-to-end tracing, evaluation, and optimization of LLM-powered pipelines, reducing hallucination rates and improving response accuracy.",
+      "Integrated Antigravity AI tools for automated codebase analysis, migration planning, and dependency auditing across microservices.",
     ],
     leadBullets: [
       "Collaborated closely with cross-functional teams, including designers, QA, and product owners, to deliver high-quality features on time.",
@@ -87,16 +103,22 @@ export const resumeExperience: ExperienceItem[] = [
 
 export const resumeProjects: Project[] = [
   {
-    name: "Corsky",
-    description: "Comprehensive wine-based multi-site e-commerce and POS platform integrating online and offline sales channels.",
+    name: "Corksy",
+    description: "Multi-tenant wine e-commerce platform with Web App, Mobile App, and POS — powered by Duda for storefront e-commerce.",
+    architecture: "Multi-Tenant",
+    platforms: ["Web App", "Mobile App", "POS", "Duda E-commerce"],
     highlights: [
-      "Implemented payment provider configuration, enabling seamless and secure transactions across multiple providers.",
-      "Designed and integrated shipping modules to streamline order fulfillment processes.",
-      "Built analytics and revenue tracking features for real-time business insights and performance monitoring.",
-      "Developed POS solutions for Android devices and web platforms, including integration with PAX payment devices.",
-      "Created a unified system supporting both online and offline operations.",
-      "Migrated comprehensive data and related system content to the new platform.",
-      "Managed support ticket system to efficiently track, prioritize, and resolve user issues.",
+      "Architected a multi-tenant system enabling each winery to operate an isolated storefront, inventory, and configuration under a shared platform infrastructure.",
+      "Built the Corksy Web App for winery staff to manage orders, customers, inventory, analytics, and subscription wine clubs from a centralized dashboard.",
+      "Developed the Corksy Mobile App for Android devices, providing on-the-go order management, POS operations, and real-time inventory sync.",
+      "Integrated Duda as the e-commerce website builder, enabling wineries to create and manage branded storefronts with custom domains, themes, and SEO settings.",
+      "Built POS solutions for in-person tasting room sales with PAX payment device integration, supporting card, tap, and manual entry transactions.",
+      "Implemented payment provider configuration supporting multiple gateways (Stripe, Square, etc.) with automatic routing and failover per tenant.",
+      "Designed and integrated shipping modules with carrier rate calculation, label generation, and order fulfillment tracking.",
+      "Built analytics and revenue tracking dashboards for real-time business insights across all sales channels (web, mobile, POS).",
+      "Created a unified multi-channel system where online orders (Duda storefront), mobile orders, and POS transactions sync in real time using NATS event-driven messaging.",
+      "Migrated comprehensive winery data, product catalogs, and customer records to the new multi-tenant platform.",
+      "Managed support ticket system to efficiently track, prioritize, and resolve user issues across tenants.",
       "Provided ongoing support services and maintenance to ensure platform stability and customer satisfaction.",
     ],
   },
@@ -152,6 +174,8 @@ export const resumeSkillGroups: SkillGroup[] = [
       "GraphQL",
       "Python",
       "REST APIs",
+      "Event-Driven Architecture",
+      "NATS Server",
       "AI Agent",
       "LangGraph",
     ],
@@ -163,9 +187,15 @@ export const resumeSkillGroups: SkillGroup[] = [
   {
     title: "DevOps & Cloud",
     items: [
-      "AWS (Lambda, EC2, RDS, SQS, Step Functions, Elastic Beanstalk)",
+      "Docker",
+      "Jenkins",
+      "Nginx",
+      "SSH Deployment",
+      "NATS / JetStream",
+      "AWS",
+      "Azure",
       "Terraform",
-      "CI/CD pipelines",
+      "CI/CD Pipelines",
     ],
   },
   {
@@ -183,6 +213,23 @@ export const resumeSkillGroups: SkillGroup[] = [
       "Playwright",
       "Open Source Contributions",
       "AI Tooling",
+    ],
+  },
+  {
+    title: "AI & ML Tooling",
+    items: [
+      "Claude (Anthropic)",
+      "Cursor IDE",
+      "LangGraph",
+      "LangChain",
+      "LangSmith",
+      "AI Agents",
+      "Prompt Engineering",
+      "Claude CLI",
+      "Vibe Coding",
+      "Antigravity",
+      "OpenAI API",
+      "Vector Embeddings",
     ],
   },
   {

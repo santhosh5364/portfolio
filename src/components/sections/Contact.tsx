@@ -13,11 +13,14 @@ function Contact() {
       ref={ref}
       id="contact"
       className={cn(
-        "transition-all duration-700",
+        "relative transition-all duration-700 overflow-hidden",
         inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
       )}
     >
-      <div className="terminal-bg rounded-xl border border-border overflow-hidden shadow-lg max-w-2xl mx-auto">
+      <div className="absolute inset-0 bg-grid-lines opacity-30" aria-hidden />
+      <div className="glow-orb glow-orb--accent animate-float w-[200px] h-[200px] -bottom-16 -right-16" aria-hidden />
+      <div className="glow-orb glow-orb--purple animate-float-delayed w-[160px] h-[160px] -top-12 left-1/4" aria-hidden />
+      <div className="relative z-10 terminal-bg rounded-xl border border-border overflow-hidden shadow-lg max-w-2xl mx-auto">
         <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10">
           <span className="h-3 w-3 rounded-full bg-red-500" />
           <span className="h-3 w-3 rounded-full bg-yellow-500" />
