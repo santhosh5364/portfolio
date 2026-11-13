@@ -45,7 +45,7 @@ function DeploymentCard({
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2 flex-wrap">
             <h3 className="text-lg font-semibold text-foreground">{name}</h3>
-            {!isInternal && <Badge
+            <Badge
               className={cn(
                 "text-xs",
                 isInternal
@@ -55,7 +55,7 @@ function DeploymentCard({
             >
               <Globe className="h-3 w-3 mr-1" />
               {isInternal ? "Internal" : "Production"}
-            </Badge>}
+            </Badge>
             {architecture && (
               <Badge className="bg-ai-accent-500/20 text-ai-accent-500 border-ai-accent-500/30 text-xs font-mono">
                 {architecture}
