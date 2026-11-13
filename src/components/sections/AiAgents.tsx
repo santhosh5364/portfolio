@@ -5,7 +5,6 @@ import {
   Sparkles,
   Zap,
   Network,
-  MessageSquare,
   Code2,
   FileText,
   Search,
@@ -44,56 +43,56 @@ const aiTools: AiToolCard[] = [
   {
     name: "Cursor IDE",
     description:
-      "Primary AI-powered development environment. Use Agent Mode and Vibe Coding for intelligent code generation, refactoring, and real-time debugging across full-stack projects.",
-    tags: ["Agent Mode", "Vibe Coding", "Code Gen"],
+      "Primary AI-powered development environment. Use Agent Mode for intelligent code generation, refactoring, and real-time debugging across full-stack and agentic AI projects.",
+    tags: ["Agent Mode", "Code Gen", "Reviews"],
     icon: <Code2 className="h-6 w-6" />,
     gradient: "from-blue-500/20 to-cyan-500/20",
   },
   {
     name: "Claude (Anthropic)",
     description:
-      "Core LLM backbone powering coding workflows. Leveraged for structured output parsing, chain-of-thought reasoning, few-shot classification, and production-grade AI features.",
-    tags: ["Anthropic", "Prompt Engineering", "CoT"],
+      "Core LLM backbone powering coding workflows and production agents. Leveraged for structured output, confidence-gated orchestration, and high-accuracy classification pipelines.",
+    tags: ["Anthropic", "Prompt Engineering", "Agents"],
     icon: <Brain className="h-6 w-6" />,
     gradient: "from-purple-500/20 to-pink-500/20",
   },
   {
-    name: "Claude CLI",
-    description:
-      "Terminal-first AI integration for automating code reviews, generating test suites, scaffolding boilerplate, and running intelligent codebase queries directly from the command line.",
-    tags: ["CLI", "Automation", "Code Review"],
-    icon: <MessageSquare className="h-6 w-6" />,
-    gradient: "from-green-500/20 to-emerald-500/20",
-  },
-  {
     name: "LangGraph & LangChain",
     description:
-      "Built multi-step AI agents with tool-calling for email classification, content generation, and autonomous task execution. Full workflow orchestration with stateful graphs.",
-    tags: ["Agents", "Tool Calling", "Orchestration"],
+      "Built multi-agent RAG platforms and Plan-Execute support agents with tool-calling, confidence-gated routing, and human-in-the-loop resume for real business workflows.",
+    tags: ["Multi-Agent", "RAG", "Orchestration"],
     icon: <Network className="h-6 w-6" />,
     gradient: "from-orange-500/20 to-yellow-500/20",
   },
   {
+    name: "MCP / FastMCP",
+    description:
+      "Exposed 80+ business tools across 13 domains through a per-tenant-secured Model Context Protocol platform, enabling agents to act safely across enterprise systems.",
+    tags: ["MCP", "Tool Platform", "Multi-Tenant"],
+    icon: <Zap className="h-6 w-6" />,
+    gradient: "from-violet-500/20 to-purple-500/20",
+  },
+  {
     name: "LangSmith",
     description:
-      "End-to-end tracing, evaluation, and optimization of LLM pipelines. Reduced hallucination rates and improved response accuracy through systematic prompt testing.",
+      "End-to-end tracing, evaluation, and continuous optimization of LLM pipelines. Used to raise email-classification accuracy above 95% with systematic prompt testing.",
     tags: ["Tracing", "Evaluation", "Optimization"],
     icon: <Sparkles className="h-6 w-6" />,
     gradient: "from-pink-500/20 to-rose-500/20",
   },
   {
-    name: "Antigravity",
+    name: "Hybrid RAG Retrieval",
     description:
-      "AI-powered codebase analysis, migration planning, and dependency auditing. Automated identification of technical debt and refactoring opportunities across microservices.",
-    tags: ["Analysis", "Migration", "Audit"],
-    icon: <Zap className="h-6 w-6" />,
-    gradient: "from-violet-500/20 to-purple-500/20",
+      "Designed 8-stage hybrid retrieval combining BM25, dense search, MMR diversification, and Cohere reranking — plus context engineering for token/cost budgets and auto-compaction.",
+    tags: ["BM25", "Dense Search", "Reranking"],
+    icon: <Search className="h-5 w-5" />,
+    gradient: "from-cyan-500/20 to-blue-500/20",
   },
   {
-    name: "AI Agent Development",
+    name: "AI Agents",
     description:
-      "Designed and deployed production AI agents for email segmentation, content workflows, and customer-facing features with structured output, retry logic, and fallback strategies.",
-    tags: ["Production Agents", "Email AI", "Workflows"],
+      "Built ARA Support (internal) and email-segmentation agents in Python/FastAPI — JWT gateway, Redis rate limiting, PII redaction, and OpenTelemetry observability end to end.",
+    tags: ["FastAPI", "AraChain", "Observability"],
     icon: <Bot className="h-6 w-6" />,
     gradient: "from-emerald-500/20 to-teal-500/20",
   },
@@ -267,11 +266,11 @@ function ToolCard({ tool }: { tool: AiToolCard }) {
 }
 
 const aiProficiency = [
+  { label: "LangGraph / Multi-Agent", value: 92 },
+  { label: "MCP / FastMCP", value: 90 },
+  { label: "RAG / Hybrid Retrieval", value: 88 },
   { label: "Cursor IDE / Agent Mode", value: 95 },
-  { label: "Claude (Anthropic)", value: 90 },
-  { label: "Prompt Engineering", value: 88 },
-  { label: "LangGraph / LangChain", value: 82 },
-  { label: "Claude CLI", value: 85 },
+  { label: "Claude / Prompt Engineering", value: 90 },
 ]
 
 function AiProficiencyBars() {
@@ -313,14 +312,14 @@ function TerminalOverview() {
           <span className="text-white/80">langgraph status --agents</span>
         </p>
         <p className="text-cyan-400">
-          3 agents deployed &bull; email-classifier &bull; content-generator &bull; rag-search
+          ara-support &bull; arachain &bull; email-classifier &bull; mcp-tools:80+
         </p>
         <p>
           <span className="text-green-400">$</span>{" "}
-          <span className="text-white/80">claude --version</span>
+          <span className="text-white/80">mcp status --tools</span>
         </p>
         <p className="text-yellow-400">
-          claude-cli v1.x — prompt engineering &amp; automation ready
+          FastMCP online — 13 domains secured per tenant
           <span className="animate-blink text-green-400 ml-1">_</span>
         </p>
       </div>

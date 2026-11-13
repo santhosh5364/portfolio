@@ -7,12 +7,15 @@ export interface ExperienceItem {
   logo?: string
 }
 
+export type ProjectStatus = "production" | "internal"
+
 export interface Project {
   name: string
   description: string
   highlights: string[]
   platforms?: string[]
   architecture?: string
+  status?: ProjectStatus
 }
 
 export interface EducationEntry {
@@ -29,74 +32,39 @@ export interface SkillGroup {
 }
 
 export const resumeName = "Santhosh.G"
-export const resumeTitle = "Full Stack Developer"
-export const resumeTagline = "4+ years building scalable web applications with React, Node.js, TypeScript, PostgreSQL, AWS & Azure"
+export const resumeTitle = "Full Stack & AI Engineer"
+export const resumeTagline =
+  "4.5+ years building scalable enterprise systems with Python, FastAPI, React, LangGraph, PostgreSQL & AWS"
 
-export const resumeObjective = `Motivated and detail-oriented Full Stack Developer with over 4+ years of experience in designing, developing, and deploying scalable web applications using modern technologies such as React, Node.js, TypeScript, PostgreSQL, AWS, and Azure. Strong background in cloud-native development, responsive UI design, API integrations, and observability tools. Adept at working in Agile environments, with a solid focus on code quality, performance optimization, and secure programming practices.`
+export const resumeObjective = `Full Stack & AI Engineer with 4.5+ years of experience designing, developing, and deploying scalable enterprise production systems across Python, FastAPI, Flask, Node.js, React, Go, PostgreSQL, and AWS. Deep hands-on expertise in Agentic AI, architecting multi-agent RAG platforms with LangGraph, MCP, and confidence-gated orchestration that automate real business workflows end-to-end. Proven track record of measurable impact: 30% faster development velocity, 95%+ AI-classification accuracy, and 40% faster data retrieval, achieved through a strong foundation in object-oriented design, cloud-native architecture, observability, and secure engineering practices.`
 
 export const resumeExperience: ExperienceItem[] = [
   {
     company: "Brightspot Technology Solutions",
-    role: "Full Stack Developer",
+    role: "Developer Lead / Full Stack Developer",
     period: "Mar 2022 – Present",
     logo: "BTS",
-    bullets: [
-      "Developed dynamic and responsive web applications for e-commerce and service-based platforms using React and Node.js.",
-      "Built an AI-driven email segmentation agent using LangGraph for workflow orchestration and LangSmith for tracing, evaluation, and optimization, enabling automated and highly accurate user-segment classification.",
-      "Implemented real-time communication using WebSockets to deliver instant payment status updates across clients, while adding concurrency controls to prevent conflicting or duplicate user actions during critical transactions.",
-      "Played a key role in the development of Corksy, a multi-tenant wine e-commerce platform with Web App, Mobile App, and POS, using Duda for storefront website building.",
-      "Adopted Agent IDE with Vibe mode—alongside tools like Cursor and Antigravity—to enhance workflow efficiency, automate repetitive coding tasks, and maintain consistent, high-quality coding standards.",
-      "Implemented Google Analytics (gtag.js) to track detailed user interactions, including page views, button clicks, and custom events, enabling data-driven insights for product and UX improvements.",
-      "Built secure backend services with Node.js and PostgreSQL, including protection against SQL injections and bot attacks.",
-      "Optimized SQL queries to improve data fetching speeds by up to 40%.",
-      "Leveraged AWS and Azure cloud services for scalable deployments, serverless architecture, and managed infrastructure.",
-      "Automated deployment pipelines and infrastructure using Terraform and CI/CD tools.",
-      "Integrated observability tools like OpenTelemetry for distributed tracing and metrics collection across services.",
-      "Implemented monitoring and alerting using Datadog, enabling faster root cause analysis and proactive issue resolution.",
-      "Designed and built single-page applications (SPA) with React and styled-components for clients in retail and education domains.",
-      "Used Flipt for feature flag management, enabling safe deployment and Unit testing of new features.",
-      "Built and maintained dashboards for real-time performance metrics and error tracking.",
-      "Integrated third-party services such as payment gateways, Email services, and analytics platforms.",
-      "Ensured high availability and uptime through improved monitoring, log management, and recovery strategies.",
-      "Improved SEO and page load speed through code splitting, lazy loading, and image optimization techniques.",
-      "Integrated third-party services using GraphQL and RESTful APIs.",
-      "Architected reusable React component libraries with TypeScript generics, reducing frontend development time across projects by 30%.",
-      "Implemented state management patterns using Redux Toolkit and Zustand, optimizing global state handling for complex multi-step checkout flows.",
-      "Built and consumed RESTful and GraphQL APIs with proper error handling, request caching, and retry logic using Axios interceptors.",
-      "Developed custom React hooks for debounced search, infinite scroll pagination, and form validation to promote code reuse.",
-      "Configured Webpack and Vite build pipelines with tree-shaking, chunk splitting, and environment-specific optimizations for production deployments.",
-      "Implemented JWT-based authentication and role-based access control (RBAC) across frontend and backend services.",
-      "Designed PostgreSQL schemas with normalized tables, composite indexes, and materialized views to support high-read workloads.",
-      "Set up serverless functions with API Gateway for microservices, reducing infrastructure costs by ~35%.",
-      "Containerized services with Docker and orchestrated deployments using cloud container services and managed platforms.",
-      "Configured Jenkins CI/CD pipelines to automate Docker image builds, run test suites, and push tagged images to container registries on every merge to main.",
-      "Implemented SSH-based deployment workflows where Jenkins triggers remote server connections to pull the latest Docker images and perform rolling container restarts with zero downtime.",
-      "Set up Nginx as a reverse proxy and web server for production environments, configuring SSL/TLS termination, gzip compression, caching headers, and load balancing across multiple upstream containers.",
-      "Designed multi-stage Dockerfiles to optimize image size and build speed, separating build dependencies from production runtime for leaner deployments.",
-      "Automated release tagging and Docker image versioning through Jenkins pipelines, enabling instant rollback to previous versions via tagged images.",
-      "Wrote comprehensive unit and integration tests using Jest, React Testing Library, and Playwright for end-to-end coverage.",
-      "Implemented responsive layouts with Tailwind CSS utility-first approach and CSS Grid/Flexbox, achieving consistent cross-browser rendering.",
-      "Architected event-driven microservices using NATS as the messaging backbone, enabling decoupled, high-throughput communication between services with publish/subscribe and request/reply patterns.",
-      "Built real-time notification systems using message queues, step functions, and NATS JetStream for durable, asynchronous event-driven workflows with at-least-once delivery guarantees.",
-      "Applied rate limiting, WAF rules, and load balancer configurations to mitigate DDoS and bot attacks on production endpoints.",
-      "Leveraged Cursor IDE with Claude (Anthropic) as the AI backbone for intelligent code generation, refactoring, and real-time debugging across large codebases.",
-      "Built multi-step AI agents using LangGraph with tool-calling capabilities, enabling autonomous task execution for email classification and content generation workflows.",
-      "Integrated Claude CLI into development workflows to automate code reviews, generate test cases, and scaffold boilerplate, reducing manual effort by ~40%.",
-      "Adopted Vibe Coding methodology using Cursor's Agent Mode and Anthropic Claude to accelerate feature development while maintaining strict code quality standards.",
-      "Designed prompt engineering patterns for structured output parsing, chain-of-thought reasoning, and few-shot classification to power customer-facing AI features.",
-      "Built AI-powered search and recommendation features using OpenAI embeddings with cosine similarity for personalized product discovery.",
-      "Used LangSmith for end-to-end tracing, evaluation, and optimization of LLM-powered pipelines, reducing hallucination rates and improving response accuracy.",
-      "Integrated Antigravity AI tools for automated codebase analysis, migration planning, and dependency auditing across microservices.",
-    ],
     leadBullets: [
-      "Collaborated closely with cross-functional teams, including designers, QA, and product owners, to deliver high-quality features on time.",
-      "Led code reviews and provided mentorship to junior developers, promoting best practices and improving team code quality.",
-      "Defined project deliverables and timelines, ensuring alignment with business objectives and client expectations.",
-      "Addressed and resolved critical production issues quickly to minimize downtime and maintain service reliability.",
-      "Conducted performance tuning of applications and infrastructure to ensure scalability under increased user loads.",
-      "Participated actively in Agile ceremonies including sprint planning, daily stand-ups, and retrospectives to foster continuous improvement.",
-      "Facilitated communication between development and operations teams to streamline deployment workflows and improve release processes.",
-      "Documented system architecture and development processes to enhance knowledge sharing within the team.",
+      "Lifted team development velocity 30%, measured across sprint cycle time, by designing custom AI-assisted coding skills, prompts, and code-review workflows adopted org-wide.",
+      "Cut critical-incident resolution time and downtime by leading rapid-response debugging, triage, and proactive performance tuning across production infrastructure under increased user load.",
+      "Raised team code quality, measured by review defect rate, by leading code reviews and mentoring junior developers on best practices and secure coding standards.",
+      "Kept delivery on schedule across concurrent workstreams by defining project scope, deliverables, and timelines aligned to business and client objectives.",
+      "Improved cross-team execution by facilitating communication between development and operations to streamline deployment workflows and release processes.",
+      "Strengthened knowledge continuity by documenting system architecture and development processes for the wider engineering team.",
+      "Sustained continuous improvement by actively driving Agile ceremonies including sprint planning, daily stand-ups, and retrospectives.",
+    ],
+    bullets: [
+      "Reduced manual user-segmentation effort 80% while achieving 95%+ classification accuracy by architecting a Python, LangGraph-orchestrated email classification system with LangSmith tracing and continuous evaluation.",
+      "Accelerated data fetch performance 40% by optimizing SQL queries and redesigning PostgreSQL indexing strategy across high-traffic production services.",
+      "Delivered instant, concurrency-safe payment status updates by building a WebSocket-based real-time communication layer across client platforms.",
+      "Hardened backend services against SQL injection and bot attacks by implementing layered security controls (JWT auth, WAF, rate limiting) in Node.js and PostgreSQL.",
+      "Improved release reliability and cut manual deployment effort by automating CI/CD pipelines and infrastructure-as-code using Terraform and Jenkins.",
+      "Increased incident-detection speed and system visibility by integrating OpenTelemetry and Datadog for distributed tracing and metrics collection.",
+      "De-risked feature rollouts by adopting Flipt for feature-flag-gated deployments, enabling safe testing of new functionality in production.",
+      "Expanded platform reach by integrating third-party payment gateways, email services, and analytics platforms via GraphQL and RESTful APIs.",
+      "Improved UX decision-making by implementing Google Analytics (gtag.js) to track detailed user interactions, custom events, and button-level engagement.",
+      "Delivered responsive, production-grade single-page applications using React and styled-components for retail and education-sector clients.",
+      "Leveraged AWS cloud services to enable scalable deployments and serverless architecture across client-facing applications.",
     ],
   },
 ]
@@ -104,55 +72,107 @@ export const resumeExperience: ExperienceItem[] = [
 export const resumeProjects: Project[] = [
   {
     name: "Corksy",
-    description: "Multi-tenant wine e-commerce platform with Web App, Mobile App, and POS — powered by Duda for storefront e-commerce.",
+    description:
+      "Multi-site wine e-commerce and POS platform unifying online and offline sales channels.",
     architecture: "Multi-Tenant",
-    platforms: ["Web App", "Mobile App", "POS", "Duda E-commerce"],
+    status: "production",
+    platforms: ["Web App", "Mobile App", "POS", "E-commerce"],
     highlights: [
-      "Architected a multi-tenant system enabling each winery to operate an isolated storefront, inventory, and configuration under a shared platform infrastructure.",
-      "Built the Corksy Web App for winery staff to manage orders, customers, inventory, analytics, and subscription wine clubs from a centralized dashboard.",
-      "Developed the Corksy Mobile App for Android devices, providing on-the-go order management, POS operations, and real-time inventory sync.",
-      "Integrated Duda as the e-commerce website builder, enabling wineries to create and manage branded storefronts with custom domains, themes, and SEO settings.",
-      "Built POS solutions for in-person tasting room sales with PAX payment device integration, supporting card, tap, and manual entry transactions.",
-      "Implemented payment provider configuration supporting multiple gateways (Stripe, Square, etc.) with automatic routing and failover per tenant.",
-      "Designed and integrated shipping modules with carrier rate calculation, label generation, and order fulfillment tracking.",
-      "Built analytics and revenue tracking dashboards for real-time business insights across all sales channels (web, mobile, POS).",
-      "Created a unified multi-channel system where online orders (Duda storefront), mobile orders, and POS transactions sync in real time using NATS event-driven messaging.",
-      "Migrated comprehensive winery data, product catalogs, and customer records to the new multi-tenant platform.",
-      "Managed support ticket system to efficiently track, prioritize, and resolve user issues across tenants.",
-      "Provided ongoing support services and maintenance to ensure platform stability and customer satisfaction.",
+      "Unified online and offline sales channels by delivering a comprehensive multi-site wine e-commerce and POS platform from the ground up.",
+      "Enabled seamless, secure transactions across multiple providers by implementing configurable payment provider integration.",
+      "Streamlined order fulfillment end-to-end by designing and integrating dedicated shipping modules into the platform.",
+      "Extended in-store checkout capability by developing Android and web POS solutions, including direct integration with PAX payment devices.",
+      "Improved customer support turnaround by managing a support ticket system to track, prioritize, and resolve user issues while migrating historical data to the new platform.",
+      "Increased personalization and conversion potential by building AI-powered customer segmentation and recommendation workflows using Python and LLM-based technologies.",
+    ],
+  },
+  {
+    name: "ARA Support",
+    description:
+      "Internal multi-agent RAG tooling for support workflows, spec generation, and document analysis.",
+    architecture: "Multi-Agent RAG",
+    status: "internal",
+    platforms: ["Python", "LangGraph", "FastAPI", "MCP"],
+    highlights: [
+      "Built an internal 6-microservice multi-agent RAG toolkit in Python (FastAPI) to automate support workflows, spec generation, and document analysis for the engineering team.",
+      "Enabled multi-turn ticket-style resolution experiments by building AraChain, a Plan-Execute support agent with confidence-gated routing and human-in-the-loop resume.",
+      "Sharpened retrieval relevance by designing an 8-stage hybrid retrieval pipeline combining BM25, dense search, MMR diversification, and Cohere reranking.",
+      "Cut LLM cost overhead and eliminated context-overflow failures by building a Context Engineering library enforcing token/cost budgets and auto-compaction.",
+      "Scaled agent capability to 80+ internal business tools across 13 domains by exposing them through a per-tenant-secured MCP tool platform.",
+      "Hardened the internal toolkit with a JWT-authenticated API Gateway, Redis rate limiting, PII redaction, and OpenTelemetry observability.",
     ],
   },
 ]
 
 export const resumeEducation: EducationEntry[] = [
   {
-    degree: "BE - Electronics and Communication Engineering",
+    degree: "B.E., Electronics and Communication Engineering",
     year: "2021",
-    score: "75%",
-    institution: "M.P.Nachimuthu M.Jaganathan Engineering College (Anna University)",
+    score: "CGPA 7.72",
+    institution: "M.P. Nachimuthu M. Jaganathan Engineering College (Anna University)",
     location: "Chennimalai, Erode",
   },
   {
-    degree: "HSC",
+    degree: "Higher Secondary Certificate (HSC)",
     year: "2017",
     score: "82%",
-    institution: "Gov Hr. Sec. School",
+    institution: "Govt Hr. Sec. School",
     location: "Chennampatti, Erode",
   },
   {
-    degree: "SSLC",
+    degree: "Secondary School Leaving Certificate (SSLC)",
     year: "2015",
     score: "89%",
-    institution: "Gov Hr. Sec. School",
+    institution: "Govt Hr. Sec. School",
     location: "Chennampatti, Erode",
   },
 ]
 
 export const resumeSkillGroups: SkillGroup[] = [
   {
+    title: "Agentic AI",
+    items: [
+      "LangGraph",
+      "LangChain",
+      "LangSmith",
+      "MCP / FastMCP",
+      "Multi-Agent Orchestration",
+      "RAG",
+      "sentence-transformers",
+      "HuggingFace Transformers",
+    ],
+  },
+  {
+    title: "Backend",
+    items: [
+      "Python",
+      "FastAPI",
+      "Flask",
+      "Node.js",
+      "Express.js",
+      "Go (Golang)",
+      "GraphQL",
+      "REST APIs",
+      "Microservices",
+      "OOP",
+    ],
+  },
+  {
+    title: "Database",
+    items: [
+      "PostgreSQL",
+      "ClickHouse",
+      "SQL Optimization",
+      "Redis",
+      "Qdrant",
+      "MongoDB",
+    ],
+  },
+  {
     title: "Frontend",
     items: [
       "React.js",
+      "Next.js",
       "Redux",
       "TypeScript",
       "JavaScript",
@@ -161,83 +181,47 @@ export const resumeSkillGroups: SkillGroup[] = [
       "Bootstrap",
       "Tailwind CSS",
       "Responsive Web Design",
-      "Lodash",
+      "Lodash.js",
       "Zustand",
+      "Jest",
+      "React Testing Library",
     ],
-  },
-  {
-    title: "Backend",
-    items: [
-      "Node.js",
-      "Express.js",
-      "Go (Golang)",
-      "GraphQL",
-      "Python",
-      "REST APIs",
-      "Event-Driven Architecture",
-      "NATS Server",
-      "AI Agent",
-      "LangGraph",
-    ],
-  },
-  {
-    title: "Database",
-    items: ["PostgreSQL", "SQL Optimization"],
   },
   {
     title: "DevOps & Cloud",
     items: [
-      "Docker",
-      "Jenkins",
-      "Nginx",
-      "SSH Deployment",
-      "NATS / JetStream",
       "AWS",
-      "Azure",
       "Terraform",
       "CI/CD Pipelines",
+      "Jenkins",
+      "Redis Queue (RQ)",
     ],
   },
   {
     title: "Observability",
-    items: ["OpenTelemetry", "Datadog", "Flipt"],
+    items: ["OpenTelemetry", "Datadog", "Flipt", "New Relic"],
   },
   {
     title: "Tools & Practices",
     items: [
       "Git",
+      "GitHub",
       "Agile",
-      "Github",
       "NPM",
-      "Lodash",
       "Playwright",
       "Open Source Contributions",
+      "Cursor",
+      "Claude",
       "AI Tooling",
-    ],
-  },
-  {
-    title: "AI & ML Tooling",
-    items: [
-      "Claude (Anthropic)",
-      "Cursor IDE",
-      "LangGraph",
-      "LangChain",
-      "LangSmith",
-      "AI Agents",
-      "Prompt Engineering",
-      "Claude CLI",
-      "Vibe Coding",
-      "Antigravity",
-      "OpenAI API",
-      "Vector Embeddings",
     ],
   },
   {
     title: "Security",
     items: [
+      "JWT",
       "SQL Injection Prevention",
       "Bot Attack Mitigation",
-      "Rate Limit",
+      "Rate Limiting",
       "WAF",
       "Load Balancer",
     ],
@@ -245,10 +229,8 @@ export const resumeSkillGroups: SkillGroup[] = [
 ]
 
 export const resumeInterpersonal: string[] = [
-  "Problem-solving",
-  "Strong leadership skills",
-  "Skilled in time and risk management",
-  "Being receptive to feedback",
-  "Open-source contributions",
-  "NPM Package Development",
+  "Problem-Solving & Technical Leadership",
+  "Time & Risk Management",
+  "Open-Source Contributions & NPM Package Development",
+  "Agile & Cross-Functional Collaboration",
 ]

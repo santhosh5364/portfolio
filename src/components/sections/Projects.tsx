@@ -25,13 +25,17 @@ function DeploymentCard({
   highlights,
   platforms,
   architecture,
+  status = "production",
 }: {
   name: string
   description: string
   highlights: string[]
   platforms?: string[]
   architecture?: string
+  status?: "production" | "internal"
 }) {
+  const isInternal = status === "internal"
+
   return (
     <div className="rounded-xl border border-border bg-card overflow-hidden shadow-sm transition-all duration-300 hover:shadow-lg hover:border-green-500/30">
       <div className="flex items-center gap-3 px-5 py-4 border-b border-border bg-muted/50">
@@ -41,10 +45,17 @@ function DeploymentCard({
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2 flex-wrap">
             <h3 className="text-lg font-semibold text-foreground">{name}</h3>
-            <Badge className="bg-green-500/20 text-green-600 dark:text-green-400 border-green-500/30 text-xs">
+            {!isInternal && <Badge
+              className={cn(
+                "text-xs",
+                isInternal
+                  ? "bg-blue-500/20 text-blue-600 dark:text-blue-400 border-blue-500/30"
+                  : "bg-green-500/20 text-green-600 dark:text-green-400 border-green-500/30"
+              )}
+            >
               <Globe className="h-3 w-3 mr-1" />
-              Production
-            </Badge>
+              {isInternal ? "Internal" : "Production"}
+            </Badge>}
             {architecture && (
               <Badge className="bg-ai-accent-500/20 text-ai-accent-500 border-ai-accent-500/30 text-xs font-mono">
                 {architecture}
@@ -73,7 +84,7 @@ function DeploymentCard({
         </span>
         <span className="flex items-center gap-1">
           <Clock className="h-3 w-3" />
-          Deployed
+          {isInternal ? "Internal tooling" : "Deployed"}
         </span>
       </div>
 
@@ -242,6 +253,7 @@ function Projects() {
               highlights={project.highlights}
               platforms={project.platforms}
               architecture={project.architecture}
+              status={project.status}
             />
           ))}
         </div>

@@ -46,6 +46,11 @@ function Contact() {
             <div className="mt-2 pl-2 border-l-2 border-white/10 space-y-1">
               <p className="text-white/40">{"{"}</p>
               <p>
+                {"  "}<span className="text-purple-400">&quot;location&quot;</span>
+                <span className="text-white/40">: </span>
+                <span className="text-cyan-400">&quot;{contactLinks.location}&quot;</span>
+              </p>
+              <p>
                 {"  "}<span className="text-purple-400">&quot;email&quot;</span>
                 <span className="text-white/40">: </span>
                 <a
@@ -53,6 +58,16 @@ function Contact() {
                   className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2 transition-colors"
                 >
                   &quot;{contactLinks.email.replace("mailto:", "")}&quot;
+                </a>
+              </p>
+              <p>
+                {"  "}<span className="text-purple-400">&quot;phone&quot;</span>
+                <span className="text-white/40">: </span>
+                <a
+                  href={contactLinks.phone}
+                  className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2 transition-colors"
+                >
+                  &quot;{contactLinks.phone.replace("tel:", "")}&quot;
                 </a>
               </p>
               <p>

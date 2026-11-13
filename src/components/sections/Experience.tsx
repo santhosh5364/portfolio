@@ -109,38 +109,23 @@ function Experience() {
         <PipelineHeader />
 
         <div className="space-y-6">
-          <PipelineJob
-            title="build: frontend & backend"
-            status="success"
-            items={job.bullets.slice(0, 12)}
-          />
-          <PipelineJob
-            title="test: quality & performance"
-            status="success"
-            items={job.bullets.slice(12, 24)}
-          />
-          <PipelineJob
-            title="ai: ml agents & tooling"
-            status="success"
-            items={job.bullets.slice(24, 34)}
-          />
-          <PipelineJob
-            title="docker: containerize & ship"
-            status="success"
-            items={job.bullets.slice(34, 40)}
-          />
-          <PipelineJob
-            title="deploy: jenkins → ssh → nginx"
-            status="success"
-            items={job.bullets.slice(40)}
-          />
           {job.leadBullets && job.leadBullets.length > 0 && (
             <PipelineJob
-              title="lead: team & process"
+              title="lead: developer lead (mar 2024 – present)"
               status="running"
               items={job.leadBullets}
             />
           )}
+          <PipelineJob
+            title="ai: agents, data & realtime"
+            status="success"
+            items={job.bullets.slice(0, 4)}
+          />
+          <PipelineJob
+            title="ship: devops, cloud & observability"
+            status="success"
+            items={job.bullets.slice(4)}
+          />
         </div>
       </div>
     </Section>
