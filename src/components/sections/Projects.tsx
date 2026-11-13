@@ -45,17 +45,12 @@ function DeploymentCard({
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2 flex-wrap">
             <h3 className="text-lg font-semibold text-foreground">{name}</h3>
-            <Badge
-              className={cn(
-                "text-xs",
-                isInternal
-                  ? "bg-blue-500/20 text-blue-600 dark:text-blue-400 border-blue-500/30"
-                  : "bg-green-500/20 text-green-600 dark:text-green-400 border-green-500/30"
-              )}
-            >
-              <Globe className="h-3 w-3 mr-1" />
-              {isInternal ? "Internal" : "Production"}
-            </Badge>
+            {!isInternal && (
+              <Badge className="bg-green-500/20 text-green-600 dark:text-green-400 border-green-500/30 text-xs">
+                <Globe className="h-3 w-3 mr-1" />
+                Production
+              </Badge>
+            )}
             {architecture && (
               <Badge className="bg-ai-accent-500/20 text-ai-accent-500 border-ai-accent-500/30 text-xs font-mono">
                 {architecture}
